@@ -1,0 +1,14 @@
+**
+!Dockerfile
+!deploy/
+!deploy/requirements-linux.txt
+!app.py
+!pyproject.toml
+!scanner/
+!scanner/*.py
+!samples/
+!samples/**
+!.streamlit/
+!.streamlit/config.toml
+**/__pycache__/
+**/*.pyc

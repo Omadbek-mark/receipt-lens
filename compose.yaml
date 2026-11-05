@@ -1,0 +1,53 @@
+name: receipt-lens
+services:
+  scanner:
+    platform: linux/amd64
+    build: .
+    restart: unless-stopped
+    init: true
+    env_file:
+      - .env.deploy
+    environment:
+      SCANNER_DB_PATH: /app/data/expenses.sqlite3
+    ports:
+      - "127.0.0.1:8501:8501"
+    volumes:
+      - receipts:/app/data
+      - models:/home/scanner
+    mem_limit: 3g
+    cpus: 2
+    pids_limit: 256
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+  proxy:
+    image: caddy:2.10.2-alpine
+    restart: unless-stopped
+    environment:
+      SCANNER_DOMAIN: ${SCANNER_DOMAIN:?Set SCANNER_DOMAIN in .env.deploy to your real DNS hostname}
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      scanner:
+        condition: service_healthy
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+volumes:
+  receipts:
+  models:
+  caddy_data:
+  caddy_config:

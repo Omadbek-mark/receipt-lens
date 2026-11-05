@@ -1,0 +1,4 @@
+DOCUMENT SCANNER
+This is a simple English document.
+Order number: 12345
+Total: 250 dollars.

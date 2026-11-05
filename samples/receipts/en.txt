@@ -1,0 +1,11 @@
+DEMO CAFE
+Receipt
+Date: 2026-11-01
+Coffee: 4.00 USD
+Sandwich: 6.00 USD
+Subtotal: 10.00 USD
+Tax: 1.00 USD
+TOTAL: 11.00 USD
+Cash: 20.00 USD
+Change: 9.00 USD
+Synthetic test receipt

@@ -1,0 +1,42 @@
+{
+  "run_utc": "2026-11-01T05:35:08.474554+00:00",
+  "python": "3.12.16",
+  "system": "Darwin",
+  "architecture": "arm64",
+  "device": "cpu",
+  "document_count": 15,
+  "manifest_sha256": "e0fa0f78a3a51427182597cc98f1aec81181bacf3e8cdcb23b687ffc83553a87",
+  "packages": {
+    "paddleocr": "3.3.2",
+    "paddlepaddle": "3.2.2",
+    "numpy": "2.5.4",
+    "opencv-contrib-python": "4.10.0.84",
+    "Pillow": "12.0.0"
+  },
+  "normalization": "NFC; collapse whitespace; retain case, punctuation and apostrophe variants",
+  "model_initialization_seconds": {
+    "en": 2.528667917009443,
+    "uz": 0.13576770899817348,
+    "korean": 0.4433692910242826
+  },
+  "warmup_seconds": {
+    "en": 2.02223112503998,
+    "uz": 2.0157689158804715,
+    "korean": 2.064224041067064
+  },
+  "weight_checksums": {
+    "PP-OCRv5_mobile_det": {
+      "inference.pdiparams": "afa1820cb16c1fd0dad589d0f8b389139061c1ef6d68019685fd07be997dda5b"
+    },
+    "latin_PP-OCRv5_mobile_rec": {
+      "inference.pdiparams": "53cdc8b481a7394bb108f96d0fb3432b0a8f392e22c7d18f06dbb2d42b8b25f9"
+    },
+    "korean_PP-OCRv5_mobile_rec": {
+      "inference.pdiparams": "cac3e5f12cf04aaa77f6a5bc704e4e736ef2908476551891d84b41b4e9090462"
+    },
+    "en_PP-OCRv5_mobile_rec": {
+      "inference.pdiparams": "3ec8a97ed6cefe8568d3e2ee90bb193299b566a7661aa4fd52d224b96b59f66b"
+    }
+  },
+  "protocol": "One warm-up per language, one run per mode/sample; alternating mode order."
+}

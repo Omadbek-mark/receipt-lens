@@ -1,0 +1,379 @@
+{
+  "version": 1,
+  "origin": "Original synthetic test documents; no real personal data.",
+  "generator": {
+    "page_size": [
+      1400,
+      1000
+    ],
+    "font_size": 40,
+    "line_spacing": 30,
+    "shadow_gradient": [
+      0.48,
+      1.0
+    ],
+    "blur_kernel": [
+      5,
+      5
+    ],
+    "blur_sigma": 1.2,
+    "latin_font_sha256": "525979822591a3447cfc49d943d6f7683508e25543407871c0ed8fed05fd2bd9",
+    "korean_font_sha256": "e33989af92c53dd2b80efd88f50c404094a046658d0e7a7692619587570e616c"
+  },
+  "samples": [
+    {
+      "id": "en-01-clean",
+      "language": "en",
+      "condition": "clean",
+      "image": "en/01-clean.png",
+      "reference": "en/01-clean.txt",
+      "image_sha256": "75587bd7a07a9f2b90ee8c7fe5495187b5e3a5d109dad11290c7c88343513e9e",
+      "reference_sha256": "56de0edd989d4c3acb365775b917b01e3769532295e98f1e693df58f0532c294",
+      "expected_corners": null
+    },
+    {
+      "id": "en-02-perspective",
+      "language": "en",
+      "condition": "perspective",
+      "image": "en/02-perspective.png",
+      "reference": "en/02-perspective.txt",
+      "image_sha256": "3baf8278c40eba82677219c584e5307c7d8d1462944edd8ef4b4ae325aa15562",
+      "reference_sha256": "56dd5e0f2de26ef1b92570c220b5c5e592a83d3b9b3df1af5cabf138c8447f29",
+      "expected_corners": [
+        [
+          250.0,
+          210.0
+        ],
+        [
+          1580.0,
+          110.0
+        ],
+        [
+          1650.0,
+          1050.0
+        ],
+        [
+          140.0,
+          1110.0
+        ]
+      ]
+    },
+    {
+      "id": "en-03-shadow",
+      "language": "en",
+      "condition": "shadow",
+      "image": "en/03-shadow.png",
+      "reference": "en/03-shadow.txt",
+      "image_sha256": "af6b328280321add66e698b596086ed2f13f826d31a95d64daf938c7b149f6bf",
+      "reference_sha256": "95d45abc3734afe1d1ac57814d41e5a167432afb68a1790fcec823c4669ab919",
+      "expected_corners": [
+        [
+          250.0,
+          210.0
+        ],
+        [
+          1580.0,
+          110.0
+        ],
+        [
+          1650.0,
+          1050.0
+        ],
+        [
+          140.0,
+          1110.0
+        ]
+      ]
+    },
+    {
+      "id": "en-04-blur",
+      "language": "en",
+      "condition": "blur",
+      "image": "en/04-blur.png",
+      "reference": "en/04-blur.txt",
+      "image_sha256": "62ec97680d7ad17fbb313b26a4ff4512e9c5bee9da26ffa91df55a5cb3eebd3c",
+      "reference_sha256": "848e9c3d68ba91fce9cd3ed69978f3347c84426c0d2fc661816e34983c3697b0",
+      "expected_corners": [
+        [
+          250.0,
+          210.0
+        ],
+        [
+          1580.0,
+          110.0
+        ],
+        [
+          1650.0,
+          1050.0
+        ],
+        [
+          140.0,
+          1110.0
+        ]
+      ]
+    },
+    {
+      "id": "en-05-shadow_blur",
+      "language": "en",
+      "condition": "shadow_blur",
+      "image": "en/05-shadow_blur.png",
+      "reference": "en/05-shadow_blur.txt",
+      "image_sha256": "4ea7cf13ad873c11a7766433c82911cbc9afd681a26f4e260360bfa031eebde8",
+      "reference_sha256": "7fe8c988e84e4d1a6f328ea00912425bd82dc9b09033620e6dfe9b3e7ba94c7a",
+      "expected_corners": [
+        [
+          250.0,
+          210.0
+        ],
+        [
+          1580.0,
+          110.0
+        ],
+        [
+          1650.0,
+          1050.0
+        ],
+        [
+          140.0,
+          1110.0
+        ]
+      ]
+    },
+    {
+      "id": "uz-01-clean",
+      "language": "uz",
+      "condition": "clean",
+      "image": "uz/01-clean.png",
+      "reference": "uz/01-clean.txt",
+      "image_sha256": "c91c5ccd591b4b5aeb8408a0997da0c7b94415f65808877281de47ca1022728b",
+      "reference_sha256": "6eb9b42892739697a490c3466398a7e1acc802ff25b36c6017b5cae40a8e9095",
+      "expected_corners": null
+    },
+    {
+      "id": "uz-02-perspective",
+      "language": "uz",
+      "condition": "perspective",
+      "image": "uz/02-perspective.png",
+      "reference": "uz/02-perspective.txt",
+      "image_sha256": "932d1273ae7aecab0c5c327e1a7689668478c5c9acf46c96e466130e2981e5c9",
+      "reference_sha256": "dc7b657cfaa608e0300cfd499e47b48c5006fee73ee3a042d8060279184a29df",
+      "expected_corners": [
+        [
+          250.0,
+          210.0
+        ],
+        [
+          1580.0,
+          110.0
+        ],
+        [
+          1650.0,
+          1050.0
+        ],
+        [
+          140.0,
+          1110.0
+        ]
+      ]
+    },
+    {
+      "id": "uz-03-shadow",
+      "language": "uz",
+      "condition": "shadow",
+      "image": "uz/03-shadow.png",
+      "reference": "uz/03-shadow.txt",
+      "image_sha256": "62e1b800b7136a3fe478d70480e5f1a54cb6bd1eb91b3fa77bfa8babd47b0c16",
+      "reference_sha256": "30554928458089de26925f1de19fcf4f498d462c9bdaa02bb59ea6755d3d0a8f",
+      "expected_corners": [
+        [
+          250.0,
+          210.0
+        ],
+        [
+          1580.0,
+          110.0
+        ],
+        [
+          1650.0,
+          1050.0
+        ],
+        [
+          140.0,
+          1110.0
+        ]
+      ]
+    },
+    {
+      "id": "uz-04-blur",
+      "language": "uz",
+      "condition": "blur",
+      "image": "uz/04-blur.png",
+      "reference": "uz/04-blur.txt",
+      "image_sha256": "7e6d9b5f1bd4ebaf39127cd475def4932f24f1ab25859147c9310ffe12d226e2",
+      "reference_sha256": "3a02bc8478783fa58529a4ab2461cad1c40192d24da6ab0d65f92a1b4a783040",
+      "expected_corners": [
+        [
+          250.0,
+          210.0
+        ],
+        [
+          1580.0,
+          110.0
+        ],
+        [
+          1650.0,
+          1050.0
+        ],
+        [
+          140.0,
+          1110.0
+        ]
+      ]
+    },
+    {
+      "id": "uz-05-shadow_blur",
+      "language": "uz",
+      "condition": "shadow_blur",
+      "image": "uz/05-shadow_blur.png",
+      "reference": "uz/05-shadow_blur.txt",
+      "image_sha256": "c79f305ac1d6194beda4c50749482ed336e18be9a498d8ed785030a8f674b857",
+      "reference_sha256": "0ed39dfd42163519fa949cce753e77c7b7fe6c5f16855349c3f5207320843304",
+      "expected_corners": [
+        [
+          250.0,
+          210.0
+        ],
+        [
+          1580.0,
+          110.0
+        ],
+        [
+          1650.0,
+          1050.0
+        ],
+        [
+          140.0,
+          1110.0
+        ]
+      ]
+    },
+    {
+      "id": "korean-01-clean",
+      "language": "korean",
+      "condition": "clean",
+      "image": "korean/01-clean.png",
+      "reference": "korean/01-clean.txt",
+      "image_sha256": "9e9fe4d49b7af7cc5a6e2969615273ef2599b39b5ba2deeee0b6d778dea0a182",
+      "reference_sha256": "a1d0ec13f366f4bfb415282bec33e8e40ef738ecef64c7b58d4d8538daa0aa17",
+      "expected_corners": null
+    },
+    {
+      "id": "korean-02-perspective",
+      "language": "korean",
+      "condition": "perspective",
+      "image": "korean/02-perspective.png",
+      "reference": "korean/02-perspective.txt",
+      "image_sha256": "e0be20d17195f4af723dc51e6d8271ed83550302a55ea45491865418ee4ed720",
+      "reference_sha256": "b69e992a378afc7d8c8e51f61ac79e88387a0543f9c0fb8b6b476f469a643ef1",
+      "expected_corners": [
+        [
+          250.0,
+          210.0
+        ],
+        [
+          1580.0,
+          110.0
+        ],
+        [
+          1650.0,
+          1050.0
+        ],
+        [
+          140.0,
+          1110.0
+        ]
+      ]
+    },
+    {
+      "id": "korean-03-shadow",
+      "language": "korean",
+      "condition": "shadow",
+      "image": "korean/03-shadow.png",
+      "reference": "korean/03-shadow.txt",
+      "image_sha256": "986bd511621418860bf4afeb026e27e74cdac7bf8dfb929c5a537c75b7f0d92e",
+      "reference_sha256": "7736dcef3bc8f42bf00636dbfeb9c519e0f191c21350dfa339d8511256da03ad",
+      "expected_corners": [
+        [
+          250.0,
+          210.0
+        ],
+        [
+          1580.0,
+          110.0
+        ],
+        [
+          1650.0,
+          1050.0
+        ],
+        [
+          140.0,
+          1110.0
+        ]
+      ]
+    },
+    {
+      "id": "korean-04-blur",
+      "language": "korean",
+      "condition": "blur",
+      "image": "korean/04-blur.png",
+      "reference": "korean/04-blur.txt",
+      "image_sha256": "3eedc362835fbbf8428ba28770e67cd586ad8fc18da356435d824d8a66634155",
+      "reference_sha256": "52e8df2cab4682bd0d680048dec3d71fedd3c5325412b4c42bb941ecdf122ddd",
+      "expected_corners": [
+        [
+          250.0,
+          210.0
+        ],
+        [
+          1580.0,
+          110.0
+        ],
+        [
+          1650.0,
+          1050.0
+        ],
+        [
+          140.0,
+          1110.0
+        ]
+      ]
+    },
+    {
+      "id": "korean-05-shadow_blur",
+      "language": "korean",
+      "condition": "shadow_blur",
+      "image": "korean/05-shadow_blur.png",
+      "reference": "korean/05-shadow_blur.txt",
+      "image_sha256": "16af49c260526570f697d7fe625b2ab71e08c7a78a5d77244ab7f7e43cf77733",
+      "reference_sha256": "947389dac9996162bccd34d4b6515cfdd946a772774493f4d3a0cca964d7dd79",
+      "expected_corners": [
+        [
+          250.0,
+          210.0
+        ],
+        [
+          1580.0,
+          110.0
+        ],
+        [
+          1650.0,
+          1050.0
+        ],
+        [
+          140.0,
+          1110.0
+        ]
+      ]
+    }
+  ]
+}

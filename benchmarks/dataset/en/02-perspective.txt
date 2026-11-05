@@ -1,0 +1,7 @@
+CLASSROOM SUPPLIES
+Order number: 12002
+Date: 2026-02-16
+Notebooks: 12
+Blue pens: 24
+Total: 36 items
+Please check the quantities.

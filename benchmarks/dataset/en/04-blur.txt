@@ -1,0 +1,7 @@
+PRODUCT INVENTORY
+Record number: 12004
+Date: 2026-04-18
+Product: Green folders
+Available: 48 units
+Unit price: 3.50 USD
+Total value: 168.00 USD

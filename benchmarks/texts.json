@@ -1,0 +1,23 @@
+{
+  "en": [
+    "LIBRARY CHECKOUT\nDocument number: 12001\nDate: 2026-01-15\nItem: Introduction to Python\nQuantity: 2 books\nReturn within 14 days.\nThis is a synthetic test document.",
+    "CLASSROOM SUPPLIES\nOrder number: 12002\nDate: 2026-02-16\nNotebooks: 12\nBlue pens: 24\nTotal: 36 items\nPlease check the quantities.",
+    "WORKSHOP SCHEDULE\nSession number: 12003\nDate: 2026-03-17\nTopic: Computer vision\nStart time: 09:30\nDuration: 90 minutes\nBring a notebook and a pencil.",
+    "PRODUCT INVENTORY\nRecord number: 12004\nDate: 2026-04-18\nProduct: Green folders\nAvailable: 48 units\nUnit price: 3.50 USD\nTotal value: 168.00 USD",
+    "STUDY ROOM NOTICE\nNotice number: 12005\nDate: 2026-05-19\nRoom: 204\nOpen from 08:00 to 18:00.\nPlease keep the room quiet.\nThank you for your cooperation."
+  ],
+  "uz": [
+    "KUTUBXONA QAYDNOMASI\nHujjat raqami: 22001\nSana: 2026-01-15\nKitob: Python dasturlash asoslari\nMiqdor: 2 ta kitob\nQaytarish muddati: 14 kun\nBu sun’iy sinov hujjati.",
+    "O‘QUV QUROLLARI\nBuyurtma raqami: 22002\nSana: 2026-02-16\nDaftarlar: 12 ta\nKo‘k ruchkalar: 24 ta\nJami: 36 ta buyum\nMiqdorlarni tekshirib ko‘ring.",
+    "MASHG‘ULOT JADVALI\nMashg‘ulot raqami: 22003\nSana: 2026-03-17\nMavzu: Tasvirlarni qayta ishlash\nBoshlanish vaqti: 09:30\nDavomiyligi: 90 daqiqa\nYangi g‘oyalarni yozib qo‘ying.",
+    "MAHSULOTLAR ROʻYXATI\nQayd raqami: 22004\nSana: 2026-04-18\nMahsulot: Yashil papkalar\nMavjud: 48 dona\nBir dona narxi: 3.50 USD\nJami qiymat: 168.00 USD",
+    "O'QUV XONASI E'LONI\nE'lon raqami: 22005\nSana: 2026-05-19\nXona: 204\nIsh vaqti: 08:00 dan 18:00 gacha\nXonada tinchlikni saqlang.\nYangi g'oyalar uchun rahmat."
+  ],
+  "korean": [
+    "도서 대출 확인서\n문서 번호: 32001\n날짜: 2026-01-15\n도서: 파이썬 프로그래밍 입문\n수량: 2권\n반납 기간: 14일\n이 문서는 가상 테스트 자료입니다.",
+    "학습 준비물 주문서\n주문 번호: 32002\n날짜: 2026-02-16\n공책: 12개\n파란색 펜: 24개\n합계: 36개\n수량을 확인해 주세요.",
+    "워크숍 일정 안내\n수업 번호: 32003\n날짜: 2026-03-17\n주제: 컴퓨터 비전\n시작 시간: 09:30\n수업 시간: 90분\n공책과 연필을 준비해 주세요.",
+    "제품 재고 목록\n기록 번호: 32004\n날짜: 2026-04-18\n제품: 초록색 파일\n재고: 48개\n개당 가격: 3.50 USD\n총 금액: 168.00 USD",
+    "학습실 이용 안내\n안내 번호: 32005\n날짜: 2026-05-19\n호실: 204\n이용 시간: 08:00부터 18:00까지\n조용히 이용해 주세요.\n협조해 주셔서 감사합니다."
+  ]
+}

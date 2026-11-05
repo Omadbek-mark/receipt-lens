@@ -1,0 +1,7 @@
+LIBRARY CHECKOUT
+Document number: 12001
+Date: 2026-01-15
+Item: Introduction to Python
+Quantity: 2 books
+Return within 14 days.
+This is a synthetic test document.

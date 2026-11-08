@@ -11,6 +11,7 @@ from scanner.expense_reports import safe_csv_cell
 from scanner.i18n import option_labels, tr
 from scanner.ocr import LANGUAGES
 from scanner.pipeline import ProcessedDocument
+from scanner.public_access import RequestLimitExceeded, reserve
 from scanner.translation import TranslationError, configured_model, translate_lines
 
 
@@ -106,6 +107,7 @@ def render_translation(result: ProcessedDocument, document_key: str) -> None:
                     raise TranslationError(
                         "Please wait a moment before another translation request."
                     )
+                reserve("translation")
                 state["receipt_translation_last_at"] = time.time()
                 with st.spinner(tr("Translating selected text...")):
                     translated = translate_lines(
@@ -113,7 +115,7 @@ def render_translation(result: ProcessedDocument, document_key: str) -> None:
                     )
                 state["receipt_translation_result"] = list(zip(source.splitlines(), translated))
                 state["receipt_translation_signature"] = signature
-            except TranslationError as error:
+            except (TranslationError, RequestLimitExceeded) as error:
                 state["receipt_translation_error"] = str(error)
             finally:
                 state["receipt_busy"] = False

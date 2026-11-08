@@ -18,6 +18,7 @@ from scanner.model_cache import load_session_engine
 from scanner.ocr import LANGUAGES
 from scanner.ocr_view import render_ocr_view
 from scanner.pipeline import ProcessedDocument, ProcessingError, process_document
+from scanner.public_access import RequestLimitExceeded, accept_upload, reserve
 from scanner.receipts import CATEGORIES, CURRENCIES, extract_receipt, format_amount, parse_amount
 from scanner.session import clear_session
 from scanner.settings import APP_NAME, PROJECT_ROOT, database_path
@@ -63,6 +64,7 @@ def account_gate(store: ExpenseStore) -> tuple[str, str] | None:
             submitted = st.form_submit_button(tr("Sign in"))
         if submitted:
             try:
+                reserve("login")
                 account = store.authenticate(username, password)
                 if account:
                     state["auth_account"] = account
@@ -72,11 +74,7 @@ def account_gate(store: ExpenseStore) -> tuple[str, str] | None:
             except ValueError as error:
                 st.error(tr(str(error)))
     with register:
-        st.caption(
-            tr(
-                "Use a new username and a password of 5–128 characters. This local preview has no password-reset email."
-            )
-        )
+        st.caption(tr("Use a new username and a password of 5–128 characters."))
         with st.form("auth_register", clear_on_submit=True):
             username = st.text_input(tr("New username"), max_chars=32)
             password = st.text_input(tr("New password"), type="password", max_chars=128)
@@ -87,6 +85,7 @@ def account_gate(store: ExpenseStore) -> tuple[str, str] | None:
                 if password != confirm:
                     raise ValueError("Passwords must match.")
                 username = normalize_username(username)
+                reserve("signup")
                 owner = store.register(username, password)
                 state["auth_account"] = (owner, username)
                 state["auth_started"] = time.time()
@@ -272,7 +271,11 @@ def render_capture(store: ExpenseStore, owner: str) -> None:
             disabled=busy,
         )
         if uploaded is not None:
-            data = uploaded.getvalue()
+            try:
+                accept_upload(uploaded.file_id, "receipt_accepted_upload")
+                data = uploaded.getvalue()
+            except RequestLimitExceeded as error:
+                st.warning(tr(str(error)))
     framing = st.radio(
         tr("Receipt framing"),
         ["Automatic", "Original", "Manual crop"],
@@ -311,6 +314,7 @@ def render_capture(store: ExpenseStore, owner: str) -> None:
         reset_draft()
         progress = st.empty()
         try:
+            reserve("ocr")
             with st.spinner(tr("Reading your receipt...")):
                 state["receipt_result"] = process_document(
                     data,

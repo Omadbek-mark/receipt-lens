@@ -9,6 +9,7 @@ from scanner.imaging import load_image
 from scanner.model_cache import load_session_engine
 from scanner.ocr import LANGUAGES
 from scanner.pipeline import ProcessingError, process_document
+from scanner.public_access import RequestLimitExceeded, accept_upload, reserve
 from scanner.session import clear_session, document_key, export_key, sync_document
 from scanner.settings import APP_NAME, PROJECT_ROOT
 
@@ -111,8 +112,12 @@ def render_scanner() -> None:
         except OSError:
             st.error(tr("The example image is missing. Upload an image instead."))
     elif uploaded is not None:
-        data = uploaded.getvalue()
-        source_name = uploaded.name
+        try:
+            accept_upload(getattr(uploaded, "file_id", uploaded.name), "doc_accepted_upload")
+            data = uploaded.getvalue()
+            source_name = uploaded.name
+        except RequestLimitExceeded as error:
+            st.warning(tr(str(error)))
     key = document_key(data, language, original, source_name) if data is not None else None
     sync_document(state, key)
     if data is not None and "doc_preview" not in state and not state.get("doc_error"):
@@ -143,6 +148,7 @@ def render_scanner() -> None:
         state.pop("doc_error", None)
         status = st.empty()
         try:
+            reserve("ocr")
             with st.spinner(tr("Processing your document...")):
                 result = process_document(
                     data,

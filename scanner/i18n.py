@@ -53,6 +53,10 @@ def _translate(message: str, language: str) -> str:
 
 # Each pair contains Uzbek and Korean in that order.
 MESSAGES = {
+    "Too many requests. Try again later.": (
+        "So‘rovlar soni oshib ketdi. Keyinroq qayta urining.",
+        "요청이 너무 많습니다. 나중에 다시 시도하세요.",
+    ),
     "Workspace": ("Ish maydoni", "작업 공간"),
     "Receipt expenses": ("Chek xarajatlari", "영수증 지출"),
     "Document scanner": ("Hujjat skaneri", "문서 스캐너"),
@@ -212,34 +216,9 @@ MESSAGES = {
         "Foydalanuvchi nomi yoki parol xato.",
         "사용자 이름 또는 비밀번호가 올바르지 않습니다.",
     ),
-    "Use a new username and a password of 5–128 characters. This local preview has no password-reset email.": (
-        "Yangi "
-        "foydalanuvchi "
-        "nomi "
-        "va "
-        "5–128 "
-        "belgili "
-        "parol "
-        "kiriting. "
-        "Parolni "
-        "email "
-        "orqali "
-        "tiklash "
-        "hozircha "
-        "mavjud "
-        "emas.",
-        "새 "
-        "사용자 "
-        "이름과 "
-        "5~128자의 "
-        "비밀번호를 "
-        "입력하세요. "
-        "이메일 "
-        "비밀번호 "
-        "재설정은 "
-        "현재 "
-        "제공되지 "
-        "않습니다.",
+    "Use a new username and a password of 5–128 characters.": (
+        "Yangi foydalanuvchi nomi va 5–128 belgili parol kiriting.",
+        "새 사용자 이름과 5~128자의 비밀번호를 입력하세요.",
     ),
     "New username": ("Yangi foydalanuvchi nomi", "새 사용자 이름"),
     "New password": ("Yangi parol", "새 비밀번호"),

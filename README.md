@@ -205,7 +205,15 @@ Health checks verify HTTP availability, not OCR quality or model download comple
 
 Before sharing publicly, verify external HTTPS, native OCR/memory use, account isolation,
 operator quota/abuse controls, persisted demo data after restart and off-server backup restore.
-Session cooldown is not a global spending limit. Start with a fresh server database;
+Compose enables public mode. New accounts require at least 5 password characters.
+Caddy supplies the direct client IP and keeps the app port on loopback. App-level rolling
+budgets are per client and per process. The defaults are 5/60 signup attempts per day,
+20/120 login attempts and accepted uploads per five minutes, 10/60 OCR requests per five
+minutes, and 10/100 translation attempts per day. Counters reset on restart. Set a separate
+Gemini provider quota. Caddy limits upload size, while the app limits which uploaded files
+proceed to processing. Public OCR releases model instances after each run.
+
+Start with a fresh server database;
 local personal records are not automatically uploaded.
 
 ```sh
@@ -221,6 +229,22 @@ stop disk or reserved-IP charges. Existing VPS projects are outside this deploym
 [Cloud trial](https://cloud.google.com/free/docs/free-cloud-features) ·
 [Pricing calculator](https://cloud.google.com/products/calculator) ·
 [Budget alerts](https://cloud.google.com/billing/docs/how-to/budgets)
+
+## Shared Coolify server (alternative)
+
+**Prepared; not yet deployed.** On a server whose ports 80/443 belong to Coolify's Traefik,
+deploy only the `Dockerfile` (no Compose, no Caddy). Settings: container port `8501`,
+HTTPS domain, health check `GET http://127.0.0.1:8501/_stcore/health` (the image includes
+`curl` for this), manual auto-deploy, Docker volumes `/app/data` and `/home/scanner`, and a
+memory limit agreed with the server owner (OCR needs about 3 GB). Runtime-only variables:
+`RECEIPTLENS_PUBLIC=1`, `RECEIPTLENS_CLIENT_IP_HEADER=X-Real-Ip`, `GEMINI_TRANSLATION_MODEL`
+and, optionally, a dedicated `GEMINI_API_KEY`; Coolify team members may be able to read them.
+
+Per-client limits trust that header only if the proxy overwrites a client-supplied value.
+Verify this on the actual Traefik before public use. Coolify has no 12 MB proxy body limit
+here; Streamlit's 10 MB upload limit and the app's image checks still apply.
+`.github/workflows/ci.yml` runs ruff, pytest and a Docker build, and deploys through the
+Coolify API only on `main` after both pass and the `COOLIFY_URL` variable is set.
 
 ## Data handling and limits
 

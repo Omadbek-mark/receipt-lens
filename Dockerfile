@@ -7,7 +7,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     SCANNER_DB_PATH=/app/data/expenses.sqlite3 \
     OMP_NUM_THREADS=2
 
-RUN apt-get update && apt-get install -y --no-install-recommends libgomp1 libgl1 libglib2.0-0 \
+RUN apt-get update && apt-get install -y --no-install-recommends libgomp1 libgl1 libglib2.0-0 curl \
     && rm -rf /var/lib/apt/lists/* \
     && groupadd --gid 10001 scanner \
     && useradd --uid 10001 --gid scanner --create-home scanner

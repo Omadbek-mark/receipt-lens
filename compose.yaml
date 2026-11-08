@@ -8,6 +8,7 @@ services:
     env_file:
       - .env.deploy
     environment:
+      RECEIPTLENS_PUBLIC: "1"
       SCANNER_DB_PATH: /app/data/expenses.sqlite3
     ports:
       - "127.0.0.1:8501:8501"

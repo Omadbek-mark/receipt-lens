@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [master]
   pull_request:
-    branches: [main]
+    branches: [master]
 
 # PR runs may be replaced; a production push may already be deploying.
 concurrency:
@@ -43,7 +43,7 @@ jobs:
     # Skipped (not failed) until the Coolify variables exist.
     if: >-
       github.event_name == 'push' &&
-      github.ref == 'refs/heads/main' &&
+      github.ref == 'refs/heads/master' &&
       vars.COOLIFY_URL != ''
     runs-on: ubuntu-latest
     timeout-minutes: 45

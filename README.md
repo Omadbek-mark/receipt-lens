@@ -244,7 +244,7 @@ Per-client limits trust that header only if the proxy overwrites a client-suppli
 Verify this on the actual Traefik before public use. Coolify has no 12 MB proxy body limit
 here; Streamlit's 10 MB upload limit and the app's image checks still apply.
 `.github/workflows/ci.yml` runs ruff, pytest and a Docker build, and deploys through the
-Coolify API only on `main` after both pass and the `COOLIFY_URL` variable is set.
+Coolify API only on `master` after both pass and the `COOLIFY_URL` variable is set.
 
 ## Data handling and limits
 

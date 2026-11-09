@@ -232,7 +232,7 @@ stop disk or reserved-IP charges. Existing VPS projects are outside this deploym
 
 ## Shared Coolify server (alternative)
 
-**Prepared; not yet deployed.** On a server whose ports 80/443 belong to Coolify's Traefik,
+On a server whose ports 80/443 belong to Coolify's Traefik,
 deploy only the `Dockerfile` (no Compose, no Caddy). Settings: container port `8501`,
 HTTPS domain, health check `GET http://127.0.0.1:8501/_stcore/health` (the image includes
 `curl` for this), manual auto-deploy, Docker volumes `/app/data` and `/home/scanner`, and a
@@ -241,7 +241,14 @@ memory limit agreed with the server owner (OCR needs about 3 GB). Runtime-only v
 and, optionally, a dedicated `GEMINI_API_KEY`; Coolify team members may be able to read them.
 
 Per-client limits trust that header only if the proxy overwrites a client-supplied value.
-Verify this on the actual Traefik before public use. Coolify has no 12 MB proxy body limit
+On **2026-11-09** the Traefik v3.7 static configuration had no trusted forwarded-header
+sources, so it replaces `X-Real-Ip`; this was read from config, not tested with a spoofed
+request. The first deploy that day passed HTTPS, health and the three synthetic OCR samples
+(container peak 1027 MiB). A 12 MP phone photo then exceeded the 3 GiB limit and restarted
+the app: locally, one Korean OCR call on a synthetic 3024×4032 page peaked at 5129 MiB with
+Paddle's defaults and 1688 MiB with detection capped at 1920 px (`DETECTION_MAX_SIDE`).
+Benchmark inputs are at most 1800 px, so that cap does not change them.
+Coolify has no 12 MB proxy body limit
 here; Streamlit's 10 MB upload limit and the app's image checks still apply.
 `.github/workflows/ci.yml` runs ruff, pytest and a Docker build, and deploys through the
 Coolify API only on `master` after both pass and the `COOLIFY_URL` variable is set.

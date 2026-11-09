@@ -17,6 +17,10 @@ RECOGNIZERS = {
     "korean": "korean_PP-OCRv5_mobile_rec",
     "en": "en_PP-OCRv5_mobile_rec",
 }
+# Paddle's default only caps detection input at 4000 px, so a 12 MP phone photo peaks
+# above 5 GiB and the container is OOM-killed. Capping the longest side bounds detection
+# memory; recognition still crops text lines from the full-resolution image.
+DETECTION_MAX_SIDE = 1920
 
 
 @dataclass(frozen=True)
@@ -78,6 +82,8 @@ def create_engine(language: str) -> Any:
         use_doc_orientation_classify=False,
         use_doc_unwarping=False,
         use_textline_orientation=False,
+        text_det_limit_type="max",
+        text_det_limit_side_len=DETECTION_MAX_SIDE,
         enable_mkldnn=False,
     )
 

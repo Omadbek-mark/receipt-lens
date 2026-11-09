@@ -58,5 +58,8 @@ def test_language_selects_explicit_recognizer(monkeypatch, language, recognizer)
     assert config["text_recognition_model_name"] == recognizer
     assert config["text_detection_model_name"] == "PP-OCRv5_mobile_det"
     assert config["device"] == "cpu"
+    # Without a max-side cap, full-size phone photos exhaust the container's memory.
+    assert config["text_det_limit_type"] == "max"
+    assert config["text_det_limit_side_len"] == 1920
     # PaddleOCR ignores lang when explicit model names are supplied.
     assert "lang" not in config

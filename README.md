@@ -262,7 +262,10 @@ signing to a private S3-compatible bucket (Backblaze B2 here) and keeps local co
 Runtime-only variables: `B2_BUCKET`, `B2_ENDPOINT`, `B2_REGION`, and a bucket-scoped
 read/write key in `B2_KEY_ID` and `B2_APP_KEY`; credentials reach curl through stdin, not
 its arguments. On **2026-11-09** the script uploaded a synthetic DB to a local S3 emulator
-(moto) and the downloaded copy matched its SHA-256 and passed `integrity_check`.
+(moto) and the downloaded copy matched its SHA-256 and passed `integrity_check`. The same
+day the first production run uploaded to the B2 bucket; a copy downloaded back from B2 in
+the container matched the local backup's SHA-256 and passed `integrity_check`. That checks
+the file, not a full app restore onto a fresh server.
 
 ## Data handling and limits
 

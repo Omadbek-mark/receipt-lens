@@ -18,6 +18,7 @@ COPY --chown=scanner:scanner app.py pyproject.toml ./
 COPY --chown=scanner:scanner scanner/ ./scanner/
 COPY --chown=scanner:scanner samples/ ./samples/
 COPY --chown=scanner:scanner .streamlit/config.toml ./.streamlit/config.toml
+COPY --chown=scanner:scanner deploy/offsite-backup.sh ./deploy/offsite-backup.sh
 RUN mkdir -p /app/data && chown -R scanner:scanner /app/data /home/scanner
 USER scanner
 EXPOSE 8501

@@ -247,11 +247,22 @@ request. The first deploy that day passed HTTPS, health and the three synthetic 
 (container peak 1027 MiB). A 12 MP phone photo then exceeded the 3 GiB limit and restarted
 the app: locally, one Korean OCR call on a synthetic 3024×4032 page peaked at 5129 MiB with
 Paddle's defaults and 1688 MiB with detection capped at 1920 px (`DETECTION_MAX_SIDE`).
-Benchmark inputs are at most 1800 px, so that cap does not change them.
+Benchmark inputs are at most 1800 px, so that cap does not change them. After that fix was
+deployed through CI, a phone photo peaked at 1502 MiB with no OOM event, and a manual check
+with two fresh accounts confirmed owner isolation and that a saved expense survived a restart.
 Coolify has no 12 MB proxy body limit
 here; Streamlit's 10 MB upload limit and the app's image checks still apply.
 `.github/workflows/ci.yml` runs ruff, pytest and a Docker build, and deploys through the
 Coolify API only on `master` after both pass and the `COOLIFY_URL` variable is set.
+
+Off-server backup: a daily Coolify Scheduled Task runs `sh deploy/offsite-backup.sh` in the
+app container. It makes a consistent copy with `scanner.backup`, uploads it with curl's SigV4
+signing to a private S3-compatible bucket (Backblaze B2 here) and keeps local copies in
+`/app/data/backups` for 7 days. The bucket lifecycle rule owns remote retention (30 days).
+Runtime-only variables: `B2_BUCKET`, `B2_ENDPOINT`, `B2_REGION`, and a bucket-scoped
+read/write key in `B2_KEY_ID` and `B2_APP_KEY`; credentials reach curl through stdin, not
+its arguments. On **2026-11-09** the script uploaded a synthetic DB to a local S3 emulator
+(moto) and the downloaded copy matched its SHA-256 and passed `integrity_check`.
 
 ## Data handling and limits
 

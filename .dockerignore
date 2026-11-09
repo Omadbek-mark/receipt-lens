@@ -2,6 +2,7 @@
 !Dockerfile
 !deploy/
 !deploy/requirements-linux.txt
+!deploy/offsite-backup.sh
 !app.py
 !pyproject.toml
 !scanner/

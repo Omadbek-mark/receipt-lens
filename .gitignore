@@ -17,3 +17,6 @@ data/
 .ruff_cache/
 .coverage
 htmlcov/
+
+# Local working notes
+AGENTS.md

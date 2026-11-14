@@ -125,7 +125,7 @@ app.py → ui.py → expense_ui.py / document scanner
 
 `settings.py` centralizes identity and database paths. `model_cache.py` owns per-session
 predictors. Geometry, OCR, receipt rules, storage, reports, exports and translation remain
-separate from presentation. See [AGENTS.md](AGENTS.md) for engineering standards and invariants.
+separate from presentation.
 
 ## Verification and measured results
 
